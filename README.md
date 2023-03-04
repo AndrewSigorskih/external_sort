@@ -7,7 +7,7 @@ Since size of multi-line string-represented objects may vary, user is required t
 The main class template takes two template parameters: object type T and integer number of lines per object in a file (default 1).
 Number of objects per sorting batch (unsigned long) is passed as constructor argument.
 
-In order to be sorted, your objects shold satisfy several criteria (see test.cpp file for more concrete example):
+In order to be sorted, your objects shold satisfy several criteria (see src/test.cpp file for more concrete example):
 * Implement a default constructor and a parameterized constructor;
 * Be move-construclable and move-assignable;
 * Implement comparison operators < and >;
@@ -28,5 +28,5 @@ In sake of compatibility with primitive types like int of float, operator << sho
 ```
 
 ### Requirements
-* 11.3.0 or higher
+* g++ 11.3.0 or higher
 * {fmt} library
