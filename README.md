@@ -24,7 +24,6 @@ In sake of compatibility with primitive types like int of float, operator << sho
 
     // sort objects: call operator () with paths to input and output files
     recordSorter("test/records.txt", "test/records.sorted");
-
 ```
 
 ### Requirements

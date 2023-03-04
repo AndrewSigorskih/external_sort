@@ -9,9 +9,7 @@
 #include <vector>
 
 #define FMT_HEADER_ONLY
-#include "../fmt/include/fmt/format.h"
-
-//#include "utils.hpp"
+#include "fmt/format.h"
 
 namespace FS = std::filesystem;
 

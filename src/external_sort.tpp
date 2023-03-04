@@ -169,7 +169,6 @@ void ExternalSorter<T, LinesPerObj>::merge(const char* outfilename)
         mergeHelper(start, end, end+1);
         start = end + 1;
     }
-    std::cin.get();
     std::rename(
         fmt::format("{0}/{1}.tmp", m_tempdir, start).c_str(), 
         outfilename
