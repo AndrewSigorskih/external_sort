@@ -62,7 +62,6 @@ void ExternalSorter<T, LinesPerObj>::sort(const char* infilename)
     uint64_t currCount, linesPerBatch, remainder;
     linesPerBatch = m_batchsize * LinesPerObj;
     remainder = (linesCount % linesPerBatch) / LinesPerObj;
-    std::cout << remainder << std::endl;
     m_filesNum = (linesCount / linesPerBatch);
     if (remainder) m_filesNum += 1;
 

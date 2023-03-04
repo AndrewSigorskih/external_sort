@@ -33,3 +33,7 @@
 
 # vscode
 .vscode*
+
+# actual project
+test/*.sorted
+external_sort_test.exe
