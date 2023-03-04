@@ -61,7 +61,8 @@ void ExternalSorter<T, LinesPerObj>::sort(const char* infilename)
     input.seekg(0, std::ios::beg);
     uint64_t currCount, linesPerBatch, remainder;
     linesPerBatch = m_batchsize * LinesPerObj;
-    remainder = linesCount % linesPerBatch;
+    remainder = (linesCount % linesPerBatch) / LinesPerObj;
+    std::cout << remainder << std::endl;
     m_filesNum = (linesCount / linesPerBatch);
     if (remainder) m_filesNum += 1;
 
@@ -75,6 +76,7 @@ void ExternalSorter<T, LinesPerObj>::sort(const char* infilename)
             currCount = m_batchsize;
         else
             currCount = i < (m_filesNum-1) ? m_batchsize : remainder;
+        //std:: cout << i << currCount << std::endl;
         for (uint64_t j = 0; j < currCount; ++j)
             input >> *(arr+j);
         // sort batch
@@ -125,8 +127,8 @@ void ExternalSorter<T, LinesPerObj>::mergeHelper(uint64_t start,
 
     while (!m_queue.empty())
     {
-        uint64_t index = m_queue.top().index;
-        output << m_queue.top().data << '\n';
+        uint64_t index = m_queue.top().m_index;
+        output << m_queue.top().data() << '\n';
         m_queue.pop();
         // in case of 1-line objects like int
         // eat trailing \n so we dont go in infinite loop
@@ -167,6 +169,7 @@ void ExternalSorter<T, LinesPerObj>::merge(const char* outfilename)
         mergeHelper(start, end, end+1);
         start = end + 1;
     }
+    std::cin.get();
     std::rename(
         fmt::format("{0}/{1}.tmp", m_tempdir, start).c_str(), 
         outfilename

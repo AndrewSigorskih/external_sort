@@ -1,0 +1,20 @@
+67 49.271
+record_0
+97 65.766
+record_1
+46 73.735
+record_2
+73 64.822
+record_3
+34 7.612
+record_4
+17 94.836
+record_5
+22 32.288
+record_6
+11 19.995
+record_7
+70 83.519
+record_8
+7 55.899
+record_9

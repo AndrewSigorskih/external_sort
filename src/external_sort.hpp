@@ -22,13 +22,15 @@ void create_random_dir(char* buf, int len, uint n_tries = 100);
 template<class T>
 struct QueueNode
 {
-    uint64_t index;
-    T data;
-    QueueNode (uint64_t i, T item) : index(i), data(item) {}
+    uint64_t m_index;
+    T m_data;
+    QueueNode (uint64_t i, T item) : m_index(i), m_data(std::move(item)) {}
     // invert the sign so that max_heap turns into min_heap
     bool operator<(const QueueNode& other) const {
-        return (this->data > other.data);
+        return (this->m_data > other.m_data);
     }
+
+    const T& data() const { return this->m_data; } 
 };
 
 template <class T, int LinesPerObj = 1>
